@@ -18,6 +18,9 @@ app.factory("AuthenticationService", function($location) {
             if(credentials.username === "ralph") {
                 navigator.notification.vibrate(1000);
                 navigator.notification.beep(3);
+                setTimeout(function() {
+                    navigator.notification.alert("Wake Up !");
+                }, 10000);
                 $location.path('/home');
             }
         },
