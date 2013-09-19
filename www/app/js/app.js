@@ -24,6 +24,9 @@ app.factory("AuthenticationService", function($location) {
                 }
                 
                 $location.path('/home');
+            } else {
+                alert("Invalid credentials");
+                navigator.notification.vibrate(1000);
             }
         },
         logout: function() {
