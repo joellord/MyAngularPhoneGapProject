@@ -16,6 +16,8 @@ app.factory("AuthenticationService", function($location) {
     return {
         login: function(credentials) {
             if(credentials.username === "ralph") {
+                navigator.notification.vibrate(1000);
+                navigator.notification.beep(3);
                 $location.path('/home');
             }
         },
