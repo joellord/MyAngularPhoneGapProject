@@ -24,7 +24,9 @@ app.factory("AuthenticationService", function($location) {
                 setTimeout(function() {
                     navigator.notification.alert("Wake Up !");
                 }, 10000);
-                $location.path('/home');
+                setTimeout(function() {
+                    $location.path('/home');
+                }, 1000);
             }
         },
         logout: function() {
