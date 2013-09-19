@@ -16,17 +16,14 @@ app.factory("AuthenticationService", function($location) {
     return {
         login: function(credentials) {
             if(credentials.username === "ralph") {
-                if(navigator === undefined) {
+                if(navigator === undefined || navigator.notification === undefined) {
                     alert("Navigator is undefined");
+                } else {
+                    navigator.notification.vibrate(1000);
+                    navigator.notification.beep(3);
                 }
-                navigator.notification.vibrate(1000);
-                navigator.notification.beep(3);
-                setTimeout(function() {
-                    navigator.notification.alert("Wake Up !");
-                }, 10000);
-                setTimeout(function() {
-                    $location.path('/home');
-                }, 1000);
+                
+                $location.path('/home');
             }
         },
         logout: function() {
